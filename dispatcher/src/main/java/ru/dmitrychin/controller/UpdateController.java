@@ -10,7 +10,6 @@ import ru.dmitrychin.utils.MessageUtils;
 import static ru.dmitrychin.model.RabbitQueue.*;
 
 @Component
-@Log4j
 public class UpdateController {
     private TelegramBot telegramBot;
     private final MessageUtils messageUtils;
@@ -56,7 +55,7 @@ public class UpdateController {
         setView(sendMessage);
     }
 
-    private void setView(SendMessage sendMessage) {
+    public void setView(SendMessage sendMessage) {
         telegramBot.sendAnswerMessage(sendMessage);
     }
     private void setFileIsReceivedView(Update update) {
