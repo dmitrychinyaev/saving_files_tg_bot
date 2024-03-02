@@ -1,12 +1,13 @@
 package ru.dmitychin.service.impl;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.dmitychin.service.ConsumerService;
 import ru.dmitychin.service.MainService;
 
-import static ru.dmitrychin.model.RabbitQueue.TEXT_MESSAGE_UPDATE;
-
+import static ru.dmitrychin.model.RabbitQueue.*;
+@Service
 public class ConsumerServiceImpl implements ConsumerService {
 
     private final MainService mainService;
@@ -21,14 +22,12 @@ public class ConsumerServiceImpl implements ConsumerService {
     }
 
     @Override
-    @RabbitListener(queues = TEXT_MESSAGE_UPDATE)
+    @RabbitListener(queues = DOC_MESSAGE_UPDATE)
     public void consumeDocMessageUpdates(Update update) {
-
     }
 
     @Override
-    @RabbitListener(queues = TEXT_MESSAGE_UPDATE)
+    @RabbitListener(queues = PHOTO_MESSAGE_UPDATE)
     public void consumePhotoMessageUpdates(Update update) {
-
     }
 }

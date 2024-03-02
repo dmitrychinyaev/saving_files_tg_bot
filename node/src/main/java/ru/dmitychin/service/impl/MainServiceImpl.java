@@ -23,7 +23,7 @@ public class MainServiceImpl implements MainService {
 
         var message = update.getMessage();
         var sendMessage = new SendMessage();
-        sendMessage.setChatId(message.getChatId().toString());
+        sendMessage.setChatId(message.getChatId());
         sendMessage.setText("Hello from NODE");
         producerService.producerAnswer(sendMessage);
     }

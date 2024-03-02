@@ -43,7 +43,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             try {
                 execute(message);
             } catch (TelegramApiException e) {
-                //log.error(e);
+
             }
         }
     }
