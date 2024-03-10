@@ -1,9 +1,9 @@
-package ru.dmitychin.service.impl;
+package ru.dmitrychin.service.impl;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import ru.dmitychin.service.ProducerService;
+import ru.dmitrychin.service.ProducerService;
 
 import static ru.dmitrychin.model.RabbitQueue.ANSWER_MESSAGE;
 

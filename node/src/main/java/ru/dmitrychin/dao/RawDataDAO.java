@@ -1,8 +1,8 @@
-package ru.dmitychin.dao;
+package ru.dmitrychin.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.dmitychin.entity.RawData;
+import ru.dmitrychin.entity.RawData;
 @Repository
 public interface RawDataDAO extends JpaRepository<RawData, Long> {
 }
