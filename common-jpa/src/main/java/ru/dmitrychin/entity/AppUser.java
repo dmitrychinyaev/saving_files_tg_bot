@@ -1,12 +1,22 @@
 package ru.dmitrychin.entity;
 
-import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
-import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.TypeDef;
 import ru.dmitrychin.entity.enums.UserState;
 
-import javax.persistence.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.AllArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Enumerated;
+import javax.persistence.EnumType;
+import javax.persistence.GenerationType;
+
 import java.time.LocalDateTime;
 
 @Getter
