@@ -14,6 +14,7 @@ import ru.dmitrychin.exceptions.UploadFileException;
 import ru.dmitrychin.service.FileService;
 import ru.dmitrychin.service.MainService;
 import ru.dmitrychin.service.ProducerService;
+import ru.dmitrychin.service.enums.LinkType;
 import ru.dmitrychin.service.enums.ServiceCommands;
 
 import static ru.dmitrychin.entity.enums.UserState.BASIC_STATE;
@@ -68,9 +69,9 @@ public class MainServiceImpl implements MainService {
 
         try {
             AppDocument doc = fileService.processDoc(update.getMessage());
-            //TODO Добавить генерацию ссылки для скачивания документа
+            String link = fileService.generateLink(doc.getId(), LinkType.GET_DOC);
             var answer = "Документ успешно загружен! "
-                    + "Ссылка для скачивания: http://test.ru/get-doc/777";
+                    + "Ссылка для скачивания: " + link;
             sendAnswer(answer, chatId);
         } catch (UploadFileException ex) {
             String error = "К сожалению, загрузка файла не удалась. Повторите попытку позже.";
@@ -104,9 +105,9 @@ public class MainServiceImpl implements MainService {
 
         try {
             AppPhoto photo = fileService.processPhoto(update.getMessage());
-            //TODO добавить генерацию ссылки для скачивания фото
+            String link = fileService.generateLink(photo.getId(), LinkType.GET_PHOTO);
             var answer = "Фото успешно загружено! "
-                    + "Ссылка для скачивания: http://test.ru/get-photo/777";
+                    + "Ссылка для скачивания: " + link;
             sendAnswer(answer, chatId);
         } catch (UploadFileException ex) {
             String error = "К сожалению, загрузка фото не удалась. Повторите попытку позже.";
